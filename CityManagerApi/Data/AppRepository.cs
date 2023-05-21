@@ -26,7 +26,7 @@ namespace CityManagerApi.Data
         {
             var cities = _context
                 .Cities
-                .Include(c=>c.Photos)
+                .Include(c=>c.CityImages)
                  .Where(c=>c.UserId == userId)  
                 .ToList();
             return cities;
@@ -36,25 +36,23 @@ namespace CityManagerApi.Data
         {
             var city = _context
                 .Cities
-                .Include(c => c.Photos)
+                .Include(c => c.CityImages)
                 .FirstOrDefault(c => c.Id == cityId);
             return city;
         }
 
-        public Photo GetPhotoById(int photoId)
+        public CityImage GetPhotoById(int photoId)
         {
             var photo=_context
-                .Photos.FirstOrDefault(c => c.Id == photoId);
+                .CityImages.FirstOrDefault(c => c.Id == photoId);
             return photo;
         }
 
-        public List<Photo> GetPhotosByCityId(int cityId)
+        public List<CityImage> GetPhotosByCityId(int cityId)
         {
             var photos = _context
-                .Photos
-                .Where(p => p.CityId == cityId)
-                .ToList();
-            return photos;
+                .CityImages;
+            return photos.ToList();
         }
 
         public bool SaveAll()

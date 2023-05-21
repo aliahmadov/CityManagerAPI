@@ -9,8 +9,8 @@ namespace CityManagerApi.Data
         bool SaveAll();
 
         List<City> GetCities(int userId);
-        List<Photo> GetPhotosByCityId(int cityId);
+        List<CityImage> GetPhotosByCityId(int cityId);
         City GetCityById(int cityId);
-        Photo GetPhotoById(int photoId);
+        CityImage GetPhotoById(int photoId);
     }
 }

@@ -11,8 +11,11 @@ namespace CityManagerApi.Helpers
             CreateMap<City, CityForListDto>()
                 .ForMember(dest => dest.PhotoUrl, option =>
                 {
-                    option.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain==true).Url);
+                    option.MapFrom(src => src.CityImages.FirstOrDefault(p => p.IsMain==true).Url);
                 });
+
+            CreateMap<CityDto, City>().ReverseMap();
+            CreateMap<City, CityForDetailDto>().ReverseMap();
         }
     }
 }

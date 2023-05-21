@@ -1,6 +1,6 @@
 ﻿namespace CityManagerApi.Models
 {
-    public class Photo
+    public class CityImage
     {
         public int Id { get; set; }
         public int CityId { get; set; }
@@ -9,8 +9,8 @@
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
-        public string PublicId { get; set; }
-        public Photo()
+        public string? PublicId { get; set; }
+        public CityImage()
         {
             City = new City();
         }
