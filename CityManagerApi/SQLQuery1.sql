@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Cities] (
 
 
 
-CREATE TABLE [dbo].[Photos] (
+CREATE TABLE [dbo].[CityImages] (
 
     [Id]          INT            IDENTITY (1, 1) NOT NULL,
 
@@ -48,6 +48,6 @@ CREATE TABLE [dbo].[Photos] (
 
     [Url]         NVARCHAR (MAX) NULL,
 
-    [PublicId]    NVARCHAR (250) NULL
+    [PublicId]    NVARCHAR (250) NULL DEFAULT('none')
 
 );
