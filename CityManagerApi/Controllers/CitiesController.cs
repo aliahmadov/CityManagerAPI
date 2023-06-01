@@ -50,25 +50,25 @@ namespace CityManagerApi.Controllers
         }
 
         [HttpGet("Detail")]
-        public IActionResult GetCityById(int id)
+        public CityForDetailDto GetCityById(int id)
         {
             var city=_appRepository.GetCityById(id);
             var cityToReturn = _mapper.Map<CityForDetailDto>(city);
-            return Ok(cityToReturn);
+            return cityToReturn;
         }
 
         [HttpGet("Photos/{cityId}")]
-        public IActionResult GetPhotosByCityId(int cityId)
+        public List<CityImage> GetPhotosByCityId(int cityId)
         {
             var photos=_appRepository.GetPhotosByCityId(cityId);
-            return Ok(photos);
+            return photos;
         }
 
         [HttpGet("SinglePhoto/{id}")]
-        public IActionResult GetPhotoById(int id)
+        public CityImage GetPhotoById(int id)
         {
-            var photos = _appRepository.GetPhotoById(id);
-            return Ok(photos);
+            var photo = _appRepository.GetPhotoById(id);
+            return photo;
         }
     }
 }
